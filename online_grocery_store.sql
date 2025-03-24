@@ -134,6 +134,7 @@ CREATE TABLE Line(
     FOREIGN KEY Line(Cart_ID) REFERENCES Cart(Cart_ID)
     ON UPDATE CASCADE ON DELETE RESTRICT
 );
+
 --done
 INSERT INTO Customer (Cust_ID, Cust_Name, Cust_DOB, Cust_email, Cust_Add, Cust_City, Cust_Postcode, Cust_Phone) 
 VALUES
@@ -465,10 +466,7 @@ VALUES
 ('LI00049',5,17.50,'PR00033','CA00028'),
 ('LI00050',10,85.00,'PR00044','CA00030'),
 ('LI00051',5,30.00,'PR00011','CA00028');
-    CONSTRAINT FK_Cart_LINE
-    FOREIGN KEY Line(Cart_ID) REFERENCES Cart(Cart_ID)
-    ON UPDATE CASCADE ON DELETE RESTRICT
-);
+     
 
 select Cust_Name, Cust_DOB, Cust_email, Cust_Add, Cust_City, Cust_Postcode, Cust_Phone from customer, cart 
 where customer.cust_id = cart.cust_id;
