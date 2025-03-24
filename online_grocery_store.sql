@@ -469,3 +469,17 @@ VALUES
     FOREIGN KEY Line(Cart_ID) REFERENCES Cart(Cart_ID)
     ON UPDATE CASCADE ON DELETE RESTRICT
 );
+
+select Cust_Name, Cust_DOB, Cust_email, Cust_Add, Cust_City, Cust_Postcode, Cust_Phone from customer, cart 
+where customer.cust_id = cart.cust_id;
+
+select * from customer, cart 
+where customer.cust_id = cart.cust_id
+and count(distinct cart.cust_id) > 1
+;
+
+select sum(transactions.Loyalty_pts_change) as total_number_of_loyalty_points_collected
+from transactions, cart, customer
+where transactions.cart_id = cart.cart_id
+and customer.cust_id = cart.cust_id
+and cust_name = 'natasha lim';
